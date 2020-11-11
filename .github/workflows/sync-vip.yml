@@ -38,9 +38,12 @@ jobs:
           mv mu-plugins client-mu-plugins
 
           echo "Merging in vip..."
+          set +e
           git remote add vip https://github.com/Automattic/vip-go-skeleton.git
           git fetch vip
           git merge vip/master --no-edit --allow-unrelated-histories
+
+          set -e
 
           echo "Replacing theme..."
           rm -rf themes/twentytwenty
