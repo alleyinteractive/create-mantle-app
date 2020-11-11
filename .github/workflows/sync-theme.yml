@@ -1,8 +1,4 @@
 on:
-  push:
-    branches:
-      - gh-action
-
   schedule:
     - cron: '0 */2 * * *'
 
