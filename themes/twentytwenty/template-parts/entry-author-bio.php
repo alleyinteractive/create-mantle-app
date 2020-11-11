@@ -4,10 +4,10 @@
  *
  * @package WordPress
  * @subpackage Twenty_Twenty
- * @since Twenty Twenty 1.0
+ * @since 1.0.0
  */
 
-if ( (bool) get_the_author_meta( 'description' ) && (bool) get_theme_mod( 'show_author_bio', true ) ) : ?>
+if ( (bool) get_the_author_meta( 'description' ) ) : ?>
 <div class="author-bio">
 	<div class="author-title-wrapper">
 		<div class="author-avatar vcard">
@@ -16,7 +16,7 @@ if ( (bool) get_the_author_meta( 'description' ) && (bool) get_theme_mod( 'show_
 		<h2 class="author-title heading-size-4">
 			<?php
 			printf(
-				/* translators: %s: Author name. */
+				/* translators: %s: Author name */
 				__( 'By %s', 'twentytwenty' ),
 				esc_html( get_the_author() )
 			);
