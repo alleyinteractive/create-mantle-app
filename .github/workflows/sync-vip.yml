@@ -40,7 +40,7 @@ jobs:
           set +e
           git remote add vip https://github.com/Automattic/vip-go-skeleton.git
           git fetch vip
-          git merge vip/master --no-edit --allow-unrelated-histories
+          git merge vip/master --no-edit --allow-unrelated-histories || true
 
           set -e
 
