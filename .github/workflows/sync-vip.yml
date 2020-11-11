@@ -1,4 +1,9 @@
+
 on:
+  push:
+    branches:
+      - gh-test
+      - main
   schedule:
     - cron: '0 */2 * * *'
 
@@ -25,6 +30,10 @@ jobs:
 
           cd create-mantle-app
 
+          echo "Updating vip..."
+          git checkout vip
+          git merge main --no-edit
+
           echo "Moving to client-mu-plugins..."
           mv mu-plugins client-mu-plugins
 
@@ -36,7 +45,6 @@ jobs:
           echo "Replacing theme..."
           rm -rf themes/twentytwenty
           mv ../wordpress/wp-content/themes/twentytwenty themes/twentytwenty
-          cd create-mantle-app/themes
 
           if [ -z "$(git status --porcelain)" ]; then
             echo "No changes"
