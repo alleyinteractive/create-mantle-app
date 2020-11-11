@@ -33,8 +33,16 @@ jobs:
           echo "Updating vip..."
           git checkout vip
           git merge main --no-edit
-          git checkout --theirs README.md
-          git checkout --theirs .gitignore
+
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "No changes"
+          else
+            git checkout --theirs README.md
+            git checkout --theirs
+
+            git add -A
+            git commit -m "Syncing from main"
+          fi
 
           echo "Moving to client-mu-plugins..."
           mv mu-plugins client-mu-plugins
