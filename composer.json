@@ -1,0 +1,43 @@
+{
+    "name": "alleyinteractive/create-mantle-app",
+    "type": "project",
+    "description": "Mantle Application Scaffold",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Alley",
+            "email": "info@alley.co"
+        }
+    ],
+    "require": {
+        "alleyinteractive/mantle-framework": "dev-main",
+        "fzaninotto/faker": "^1.9"
+    },
+    "require-dev": {
+        "alleyinteractive/alley-coding-standards": "^0.2",
+        "nunomaduro/collision": "^5.0",
+        "phpunit/phpunit": "^8.5.8 || ^9.3.3"
+    },
+    "config": {
+        "apcu-autoloader": true,
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "extra": {
+        "installer-paths": {
+            "wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ]
+}

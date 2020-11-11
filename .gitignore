@@ -1,0 +1,6 @@
+uploads
+vendor
+composer.lock
+bootstrap/cache
+.phpunit.result.cache
+.vscode
