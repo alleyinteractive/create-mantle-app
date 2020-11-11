@@ -2,14 +2,14 @@ on:
   schedule:
     - cron: '0 */2 * * *'
 
-name: sync-theme
+name: sync-vip
 jobs:
   sync-theme:
-    name: sync theme
+    name: sync vip
     runs-on: ubuntu-latest
 
     steps:
-      - name: Copy Latest Theme
+      - name: Setup vip branch
         shell: bash
         env:
           TOKEN: ${{ secrets.PERSONAL_TOKEN }}
@@ -20,14 +20,22 @@ jobs:
           echo "Cloning create-mantle-app..."
           git clone --depth=1 https://$TOKEN@github.com/alleyinteractive/create-mantle-app.git create-mantle-app
 
-          echo "Cloning theme..."
+          echo "Cloning wordpress..."
           git clone --depth=1 https://github.com/WordPress/WordPress.git wordpress
 
-          echo "Removing old theme..."
-          rm -rf create-mantle-app/themes/twentytwenty
+          cd create-mantle-app
+
+          echo "Moving to client-mu-plugins..."
+          mv mu-plugins client-mu-plugins
+
+          echo "Merging in vip..."
+          git remote add vip https://github.com/Automattic/vip-go-skeleton.git
+          git fetch vip
+          git merge vip/master --no-edit --allow-unrelated-histories
 
           echo "Replacing theme..."
-          mv wordpress/wp-content/themes/twentytwenty create-mantle-app/themes/twentytwenty
+          rm -rf themes/twentytwenty
+          mv ../wordpress/wp-content/themes/twentytwenty themes/twentytwenty
           cd create-mantle-app/themes
 
           if [ -z "$(git status --porcelain)" ]; then
@@ -35,6 +43,6 @@ jobs:
           else
             echo "Committing..."
             git add -A
-            git commit -m "Syncing twentytwenty"
+            git commit -m "Syncing from vip-go-skeleton"
             git push
           fi
