@@ -23,7 +23,7 @@ jobs:
           git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
 
           echo "Cloning create-mantle-app..."
-          git clone --depth=1 https://$TOKEN@github.com/alleyinteractive/create-mantle-app.git create-mantle-app
+          git clone https://$TOKEN@github.com/alleyinteractive/create-mantle-app.git create-mantle-app
 
           echo "Cloning wordpress..."
           git clone --depth=1 https://github.com/WordPress/WordPress.git wordpress
