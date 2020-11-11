@@ -39,5 +39,8 @@
                 "wpackagist-theme/*"
             ]
         }
-    ]
+    ],
+    "scripts": {
+      "phpcs": "phpcs --standard=./phpcs.xml ."
+    }
 }

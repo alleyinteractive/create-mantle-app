@@ -6,6 +6,8 @@
 
 	<exclude-pattern>plugins/</exclude-pattern>
 	<exclude-pattern>mu-plugins/</exclude-pattern>
+	<exclude-pattern>index.php</exclude-pattern>
+	<exclude-pattern>themes/twentytwenty</exclude-pattern>
 
 	<rule ref="Alley-Interactive" />
 
