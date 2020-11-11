@@ -36,14 +36,14 @@ jobs:
           echo "Moving to client-mu-plugins..."
           mv mu-plugins client-mu-plugins
 
-          echo "Merging in vip..."
-          set +e
+          echo "Fetching vip..."
           git remote add vip https://github.com/Automattic/vip-go-skeleton.git
           git fetch vip
-          echo $(git merge vip/master --no-edit --allow-unrelated-histories)
 
+          set +e
+          echo "Merging in vip..."
+          echo $(git merge vip/master --no-edit --allow-unrelated-histories || true)
           set -e
-
           echo "Replacing theme..."
           rm -rf themes/twentytwenty
           mv ../wordpress/wp-content/themes/twentytwenty themes/twentytwenty
