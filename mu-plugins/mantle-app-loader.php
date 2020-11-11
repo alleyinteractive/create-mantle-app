@@ -8,4 +8,8 @@
 	Author URI: http://www.alley.co/
 */
 
-require_once __DIR__ . '/mantle-app/mantle.php';
+if ( function_exists( 'wpcom_vip_load_plugin' ) ) {
+	wpcom_vip_load_plugin( 'mantle-app' );
+} else {
+	require_once __DIR__ . '/mantle-app/mantle.php';
+}
