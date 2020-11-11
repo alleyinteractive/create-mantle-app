@@ -1,4 +1,9 @@
 on:
+  push:
+    branches:
+      - gh-test
+      - main
+
   schedule:
     - cron: '0 */2 * * *'
 
@@ -22,6 +27,10 @@ jobs:
 
           echo "Cloning theme..."
           git clone --depth=1 https://github.com/WordPress/WordPress.git wordpress
+
+          echo "Updating vip..."
+          git checkout vip
+          git merge main --no-edit
 
           echo "Removing old theme..."
           rm -rf create-mantle-app/themes/twentytwenty
