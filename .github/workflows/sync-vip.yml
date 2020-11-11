@@ -2,7 +2,6 @@
 on:
   push:
     branches:
-      - gh-test
       - main
   schedule:
     - cron: '0 */2 * * *'
