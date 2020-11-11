@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ruleset>
-	<description>alleyinteractive/mantle</description>
+	<description>alleyinteractive/create-mantle-app</description>
 
 	<arg value="ps" />
 
