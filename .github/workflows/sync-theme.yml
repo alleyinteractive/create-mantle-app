@@ -7,7 +7,6 @@ on:
     - cron: '0 */2 * * *'
 
 name: sync-theme
-
 jobs:
   sync-theme:
     name: sync theme
