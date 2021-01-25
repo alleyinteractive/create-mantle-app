@@ -4,7 +4,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '0 */8 * * *'
 
 name: sync-vip
 jobs:
@@ -31,18 +31,8 @@ jobs:
           set +e
 
           echo "Updating vip..."
-          git checkout vip
-          git merge main --no-edit
-
-          if [ -z "$(git status --porcelain)" ]; then
-            echo "No changes"
-          else
-            git checkout --theirs README.md
-            git checkout --theirs
-
-            git add -A
-            git commit -m "Syncing from main"
-          fi
+          git checkout -b vip
+          git ls-files -i --exclude-from=.gitignore | xargs git rm --cached
 
           echo "Moving to client-mu-plugins..."
           mv mu-plugins client-mu-plugins
@@ -65,5 +55,5 @@ jobs:
             echo "Committing..."
             git add -A
             git commit -m "Syncing from vip-go-skeleton"
-            git push
+            git push --force -u origin vip
           fi
