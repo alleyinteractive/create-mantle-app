@@ -38,6 +38,10 @@ jobs:
           echo "Moving to client-mu-plugins..."
           mv mu-plugins client-mu-plugins
 
+          # Manually replace some files that VIP has
+          rm -rf README.md
+          mv .gitignore ..
+
           echo "Fetching vip..."
           git remote add vip https://github.com/Automattic/vip-go-skeleton.git
           git fetch vip
@@ -50,6 +54,9 @@ jobs:
           rm -rf themes/$THEME
           rm -rf themes/twenty*
           mv ../wordpress/wp-content/themes/$THEME themes/$THEME
+
+          # Merge gitignore
+          cat ../.gitignore >> .gitignore
 
           if [ -z "$(git status --porcelain)" ]; then
             echo "No changes"
