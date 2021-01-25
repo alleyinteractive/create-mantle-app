@@ -47,7 +47,7 @@ jobs:
           git fetch vip
 
           echo "Merging in vip..."
-          echo $(git merge vip/master --no-edit --allow-unrelated-histories || true)
+          echo $(git merge vip/master --no-edit --allow-unrelated-histories --strategy-option theirs || true)
           set -e
 
           echo "Replacing theme..."
