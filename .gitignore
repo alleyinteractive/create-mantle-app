@@ -4,3 +4,5 @@ composer.lock
 bootstrap/cache
 .phpunit.result.cache
 .vscode
+mu-plugins/mantle-app/docs
+client-mu-plugins/mantle-app/docs
