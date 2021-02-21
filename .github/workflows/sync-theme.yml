@@ -24,10 +24,10 @@ jobs:
           git clone --depth=1 https://github.com/WordPress/WordPress.git wordpress
 
           echo "Removing old theme..."
-          rm -rf create-mantle-app/themes/twentytwenty
+          rm -rf create-mantle-app/themes/twentytwentyone
 
           echo "Replacing theme..."
-          mv wordpress/wp-content/themes/twentytwenty create-mantle-app/themes/twentytwenty
+          mv wordpress/wp-content/themes/twentytwentyone create-mantle-app/themes/twentytwentyone
           cd create-mantle-app/themes
 
           if [ -z "$(git status --porcelain)" ]; then
@@ -35,6 +35,6 @@ jobs:
           else
             echo "Committing..."
             git add -A
-            git commit -m "Syncing twentytwenty"
+            git commit -m "Syncing twentytwentyone"
             git push
           fi
