@@ -1,8 +1,6 @@
 /**
  * Get luminance from a HEX color.
  *
- * @since Twenty Twenty-One 1.0
- *
  * @param {string} hex - The hex color.
  *
  * @return {number} - Returns the luminance, number between 0 and 255.
@@ -14,8 +12,6 @@ function twentytwentyoneGetHexLum( hex ) { // jshint ignore:line
 
 /**
  * Get RGB from HEX.
- *
- * @since Twenty Twenty-One 1.0
  *
  * @param {string} hex - The hex color.
  *

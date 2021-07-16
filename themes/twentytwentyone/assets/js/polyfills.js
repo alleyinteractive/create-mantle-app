@@ -7,8 +7,6 @@
 /**
  * Polyfill for Element.closest() because we need to support IE11.
  *
- * @since Twenty Twenty-One 1.0
- *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
  */
 if ( ! Element.prototype.matches ) {
@@ -30,8 +28,6 @@ if ( ! Element.prototype.closest ) {
 
 /**
  * Polyfill for NodeList.foreach() because we need to support IE11.
- *
- * @since Twenty Twenty-One 1.0
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach
  */
