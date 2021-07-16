@@ -42,3 +42,13 @@ package-lock.json
 .Trashes
 ehthumbs.db
 Thumbs.db
+uploads
+vendor
+composer.lock
+bootstrap/cache
+.phpunit.result.cache
+.vscode
+mu-plugins/mantle-app/docs
+mu-plugins/mantle-app/.github
+client-mu-plugins/mantle-app/docs
+client-mu-plugins/mantle-app/.github
