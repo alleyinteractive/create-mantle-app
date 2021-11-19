@@ -81,17 +81,8 @@ jobs:
           max_attempts: 5
           command: composer install
 
-      - name: Install WordPress and Copy Project
-        shell: bash
-        run: |
-          bash bin/install-wp-tests.sh wordpress_unit_tests root '' 127.0.0.1 $WP_VERSION
-
-          # Go into the core directory and replace wp-content.
-          rm -rf ${WP_CORE_DIR}/wp-content
-          rsync -aWq --no-compress . ${WP_CORE_DIR}/wp-content
-
       - name: Run Unit Tests
         shell: bash
         run: |
-          cd ${WP_CORE_DIR}/wp-content/mu-plugins/mantle-app
+          cd wp-content/mu-plugins/mantle-app
           ../../vendor/bin/phpunit
