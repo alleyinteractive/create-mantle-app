@@ -41,6 +41,7 @@
         }
     ],
     "scripts": {
-        "phpcs": "phpcs --standard=./phpcs.xml ."
+        "phpcs": "phpcs --standard=./phpcs.xml .",
+        "phpunit": "cd mu-plugins/mantle-app && phpunit"
     }
 }
