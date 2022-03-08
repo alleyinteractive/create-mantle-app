@@ -8,7 +8,9 @@
 	Author URI: http://www.alley.co/
 */
 
-if ( ! file_exists( WP_CONTENT_DIR . '/vendor/autoload.php' ) ) {
+$composer_file = dirname( __DIR__ ) . '/vendor/wordpress-autoload.php';
+
+if ( ! file_exists( $composer_file ) ) {
 	add_action(
 		'admin_notices',
 		function() {
@@ -21,5 +23,5 @@ if ( ! file_exists( WP_CONTENT_DIR . '/vendor/autoload.php' ) ) {
 
 	return;
 } else {
-	require_once WP_CONTENT_DIR . '/vendor/autoload.php';
+	require_once $composer_file;
 }

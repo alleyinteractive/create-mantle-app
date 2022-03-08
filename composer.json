@@ -10,24 +10,43 @@
         }
     ],
     "require": {
+        "alleyinteractive/composer-wordpress-autoloader": "^0.2",
         "alleyinteractive/mantle-framework": "dev-main",
         "fakerphp/faker": "^1.9"
     },
     "require-dev": {
-        "alleyinteractive/alley-coding-standards": "^0.2",
+        "alleyinteractive/alley-coding-standards": "^0.3",
         "nunomaduro/collision": "^5.0",
         "phpunit/phpunit": "^8.5.8 || ^9.3.3"
     },
     "config": {
+        "allow-plugins": {
+            "alleyinteractive/composer-wordpress-autoloader": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
         "apcu-autoloader": true,
         "optimize-autoloader": true,
         "sort-packages": true
+    },
+    "autoload": {
+      "files": [
+        "mu-plugins/0-composer.php"
+      ]
     },
     "extra": {
         "installer-paths": {
             "wp-content/plugins/{$name}/": [
                 "type:wordpress-plugin"
             ]
+        },
+        "wordpress-autoloader": {
+            "autoload": {
+                "App\\": "mu-plugins/mantle-app/app/",
+                "App\\Database\\": "mu-plugins/mantle-app/database/"
+            },
+            "autoload-dev": {
+                "App\\Tests\\": "mu-plugins/mantle-app/tests/"
+            }
         }
     },
     "repositories": [
@@ -41,7 +60,12 @@
         }
     ],
     "scripts": {
+        "phpcbf": "phpcbf --standard=./phpcs.xml .",
         "phpcs": "phpcs --standard=./phpcs.xml .",
-        "phpunit": "cd mu-plugins/mantle-app && phpunit"
+        "phpunit": "cd mu-plugins/mantle-app && phpunit",
+        "test": [
+          "@lint",
+          "@phpunit"
+        ]
     }
 }
