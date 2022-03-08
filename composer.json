@@ -28,6 +28,11 @@
         "optimize-autoloader": true,
         "sort-packages": true
     },
+    "autoload": {
+      "files": [
+        "mu-plugins/0-composer.php"
+      ]
+    },
     "extra": {
         "installer-paths": {
             "wp-content/plugins/{$name}/": [
@@ -55,7 +60,12 @@
         }
     ],
     "scripts": {
+        "phpcbf": "phpcbf --standard=./phpcs.xml .",
         "phpcs": "phpcs --standard=./phpcs.xml .",
-        "phpunit": "cd mu-plugins/mantle-app && phpunit"
+        "phpunit": "cd mu-plugins/mantle-app && phpunit",
+        "test": [
+          "@lint",
+          "@phpunit"
+        ]
     }
 }
