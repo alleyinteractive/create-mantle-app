@@ -10,8 +10,8 @@
         }
     ],
     "require": {
-        "alleyinteractive/composer-wordpress-autoloader": "^0.2",
-        "alleyinteractive/mantle-framework": "dev-main",
+        "alleyinteractive/composer-wordpress-autoloader": "^0.4",
+        "alleyinteractive/mantle-framework": "^0.1",
         "fakerphp/faker": "^1.9"
     },
     "require-dev": {
@@ -59,6 +59,7 @@
             ]
         }
     ],
+    "minimum-stability": "dev",
     "scripts": {
         "phpcbf": "phpcbf --standard=./phpcs.xml .",
         "phpcs": "phpcs --standard=./phpcs.xml .",
