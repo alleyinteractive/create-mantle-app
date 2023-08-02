@@ -4,7 +4,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 */8 * * *'
+    - cron: '0 0 * * 0' # Run once per week at midnight on Sundays.
 
 name: sync-vip
 jobs:

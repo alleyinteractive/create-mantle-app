@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: '0 */2 * * *'
+    - cron: '0 0 * * 0' # Run once per week at midnight on Sundays.
 
 name: sync-theme
 jobs:
