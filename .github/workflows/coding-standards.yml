@@ -7,7 +7,7 @@ on:
   pull_request:
   # Uncomment and edit the following to run on a schedule.
   # schedule:
-  #   - cron: '0 0 * * 0' # Run once per week at midnight on Sundays.
+  #   - cron: '0 5 * * 0' # Run once per week at 5am UTC on Sundays.
 
 jobs:
   coding-standards:

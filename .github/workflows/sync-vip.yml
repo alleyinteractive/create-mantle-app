@@ -1,10 +1,11 @@
 
 on:
-  push:
-    branches:
-      - main
+  # Uncomment this to also run on every push to main.
+  # push:
+  #   branches:
+  #     - main
   schedule:
-    - cron: '0 0 * * 0' # Run once per week at midnight on Sundays.
+    - cron: '15 6 * * 0' # Run once per week at 6:15am UTC on Sundays.
 
 name: sync-vip
 jobs:
